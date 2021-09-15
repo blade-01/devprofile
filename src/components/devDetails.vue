@@ -10,7 +10,7 @@
               <p class="title">{{getProfile.name}}</p>
               <a :href="getProfile.html_url" class="link">@{{getProfile.login}}</a>
             </div>
-            <p>{{getProfile.created_at}}</p>
+            <p>Joined {{formatDate(getProfile.created_at)}}</p>
           </div>
         </div>
       </div>
@@ -33,18 +33,16 @@
       </div>
       <div class='icons'>
         <p :class="{unavailable : !getProfile.location }"><span class="mdi mdi-map-marker"></span> {{getProfile.location ? getProfile.location : "Not available"}}</p>
-        <p :class="{unavailable : !getProfile.organizations_url }"><span class="mdi mdi-link-variant"></span> <a :href="getProfile.html_url" target="_blank">{{getProfile.html_url ? getProfile.html_url : "Not availale"}}</a></p>
+        <p :class="{unavailable : !getProfile.blog }"><span class="mdi mdi-link-variant"></span> <a :href="getProfile.blog" target="_blank">{{getProfile.blog ? getProfile.blog : "Not availale"}}</a></p>
         <p :class="{unavailable : !getProfile.twitter_username }"><span class="mdi mdi-twitter"></span> <a :href="getProfile.twitter_username" target="_blank">@{{getProfile.twitter_username ? getProfile.twitter_username : "Not available"}}</a></p>
         <p :class="{unavailable : !getProfile.company }"><span class="mdi mdi-domain"></span> <a :href="getProfile.company" target="_blank">{{getProfile.company ? getProfile.company : "Not available"}}</a></p>
       </div>
     </div> 
   </div>
-  <!-- <div class="dev-dets">
-    <p>{{getProfile}}</p>
-  </div> -->
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import moment from 'moment'
 export default {
   name: 'devDetails',
   data() {
@@ -53,7 +51,9 @@ export default {
     }
   },
   methods: {
-    
+    formatDate(date) {
+      return moment(date).format("D MMM YYYY")
+    }
   },
   computed: {
     ...mapGetters(['getProfile']),
@@ -156,13 +156,9 @@ export default {
     }
   }
   .icons {
-    // display: grid;
-    // grid-template-columns: repeat(2, 1fr);
-    // grid-column-gap: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1rem;
     & p {
       flex-basis: 50%;
     }
