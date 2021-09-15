@@ -1,0 +1,17 @@
+:root {
+  --card-bg: hsl(224, 40%, 20%);
+  --body-bg: hsl(222, 40%, 13%);
+  --btn: hsl(211, 100%, 49%);
+  --text-title: hsl(0, 0%, 100%);
+  --unavailable: hsl(223, 10%, 60%);
+  --link: hsl(216, 65%, 40%);
+  --text: hsl(0, 0%, 100%);
+}
+:root .light {
+  --card-bg: hsl(0, 0%, 100%);
+  --text: hsl(237, 9%, 43%);
+  --body-bg: hsl(222, 100%, 98%);
+  --link: hsl(203, 78%, 75%);
+  --text-title: hsl(220, 9%, 27%);
+  --font: hsl(217, 24%, 46%);
+}
