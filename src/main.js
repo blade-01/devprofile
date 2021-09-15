@@ -2,7 +2,6 @@ import { createApp } from 'vue'
 import { createStore } from 'vuex'
 import App from './App.vue'
 import axios from 'axios'
-// import store from './store'
 import '@mdi/font/css/materialdesignicons.css'
 
 const store = createStore({
@@ -18,18 +17,15 @@ const store = createStore({
     fetchProfile(state, data) {
       state.profile = data
     },
-    // showProfile(state, data) {
-    //   state.profile = data
-    // }
   },
   actions: {
-    async fetchProfile({commit}, {user, errMsg}) {
-      const res = await axios.get(`https://api.github.com/users/${user}`);
-      if(res.status !== 200) {
-        throw new Error(errMsg)
+    async fetchProfile({commit}, user) {
+      try {
+        const res = await axios.get(`https://api.github.com/users/${user}`);
+        commit('fetchProfile', res.data)
+      } catch (error) {
+        console.error(error);
       }
-      console.log(res.data)
-      commit('fetchProfile', res.data)
     }
   },
 })

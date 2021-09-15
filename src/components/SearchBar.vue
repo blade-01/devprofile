@@ -4,9 +4,6 @@
     <input type="text" id="search" v-model="params" placeholder="Search for GitHub username..." />
     <input type="submit" value="Search" />
   </form>
-  <div>
-    
-  </div>
 </template>
 <script>
 import { mapActions } from 'vuex'
@@ -15,16 +12,11 @@ export default {
   data() {
     return {
       params: '',
-      err: 'No User'
     }
   },
   methods: {
     fetchData() {
-      this.fetchProfile({
-        user: this.params,
-        errMsg: 'No User with this name'
-      });
-      // console.log(123)
+      this.fetchProfile(this.params);
       this.params = ''
     },
     ...mapActions(['fetchProfile'])
@@ -46,13 +38,17 @@ form {
   & input[type="text"] {
     padding: 0.8rem 0 0.8rem 2.3rem;
     background: none;
-    border: none;
+    border: solid 1px transparent;
     outline: none;
     flex-basis: 80%;
     color: var(--text);
+    transition: border 0.4s ease;
     &::placeholder {
       color: var(--text);
       font-size: 11px;
+    }
+    &:focus {
+      border: dashed 1px var(--link);
     }
   }
   & input:-webkit-autofill,
@@ -71,6 +67,7 @@ form {
     flex-basis: 20%;
     margin-left: 0.3rem;
     font-weight: bold;
+    cursor: pointer;
   }
   & .search-icon {
     width: 27px;
@@ -79,6 +76,14 @@ form {
     left: 10px;
     transform: translate(0, -50%);
   }
+}
+.err {
+  text-align: center;
+  // position: absolute;
+  // top: 10px;
+  // left: 50%;
+  // transform: translate(-50%, 0);
+  // color: red;
 }
 @media screen and (min-width: 400px) {
   form {

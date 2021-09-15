@@ -8,7 +8,7 @@
           <div class="desktop-flex">
             <div>
               <p class="title">{{getProfile.name}}</p>
-              <a :href="getProfile.html_url" class="link">@{{getProfile.login}}</a>
+              <a :href="getProfile.html_url" target="_blank" class="link">@{{getProfile.login}}</a>
             </div>
             <p>Joined {{formatDate(getProfile.created_at)}}</p>
           </div>
@@ -34,8 +34,8 @@
       <div class='icons'>
         <p :class="{unavailable : !getProfile.location }"><span class="mdi mdi-map-marker"></span> {{getProfile.location ? getProfile.location : "Not available"}}</p>
         <p :class="{unavailable : !getProfile.blog }"><span class="mdi mdi-link-variant"></span> <a :href="getProfile.blog" target="_blank">{{getProfile.blog ? getProfile.blog : "Not availale"}}</a></p>
-        <p :class="{unavailable : !getProfile.twitter_username }"><span class="mdi mdi-twitter"></span> <a :href="getProfile.twitter_username" target="_blank">@{{getProfile.twitter_username ? getProfile.twitter_username : "Not available"}}</a></p>
-        <p :class="{unavailable : !getProfile.company }"><span class="mdi mdi-domain"></span> <a :href="getProfile.company" target="_blank">{{getProfile.company ? getProfile.company : "Not available"}}</a></p>
+        <p :class="{unavailable : !getProfile.twitter_username }"><span class="mdi mdi-twitter"></span> <a :href="appendLink(getProfile.twitter_username)" target="_blank">{{getProfile.twitter_username ? appendAt(getProfile.twitter_username) : "Not available"}}</a></p>
+        <p :class="{unavailable : !getProfile.company }"><span class="mdi mdi-domain"></span> <a :href="appendLink(getProfile.company)" target="_blank">{{getProfile.company ? getProfile.company : "Not available"}}</a></p>
       </div>
     </div> 
   </div>
@@ -53,6 +53,12 @@ export default {
   methods: {
     formatDate(date) {
       return moment(date).format("D MMM YYYY")
+    },
+    appendLink(link) {
+      return 'https://twitter.com/' + link;
+    },
+    appendAt(at) {
+      return '@' + at;
     }
   },
   computed: {
