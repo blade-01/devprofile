@@ -21,7 +21,7 @@ body {
   font-family: 'Space Mono', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 15px;
+  font-size: 13px;
   color: var(--text);
   background: var(--body-bg);
   line-height: 1.5;
@@ -63,27 +63,7 @@ ul {
 }
 @media screen and (min-width: 700px) {
   .container {
-    width: 600px;
+    width: 650px;
   }
 }
-// // #####################
-// body {
-//   --text-color: #222;
-//   --bkg-color: #fff;
-// }
-// body.dark-theme {
-//   --text-color: #eee;
-//   --bkg-color: #121212;
-// }
-// @media (prefers-color-scheme: dark) {
-//   /* defaults to dark theme */
-//   body {
-//     --text-color: #eee;
-//     --bkg-color: #121212;
-//   }
-//   body.light-theme {
-//     --text-color: #222;
-//     --bkg-color: #fff;
-//   }
-// }
 </style>
