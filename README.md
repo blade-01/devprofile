@@ -6,7 +6,7 @@
 
 <div align="center">
   <h3>
-    <a href="https://devprofile.vercel.app/">
+    <a href="https://devprofile-ten.vercel.app/">
       Demo
     </a>
     <span> | </span>
@@ -32,7 +32,8 @@
 
 ## Overview
 
-![Main Page](/src/assets/img/Home.jpg)
+![Dark Theme](/src/assets/img/dark_theme.jpg)
+![Light Theme](/src/assets/img/light_theme.jpg)
 
 ### Built With
 
@@ -42,6 +43,7 @@
 - Mobile-first workflow
 - [Vue.js](https://vuejs.org/) - Javascript Framework
 - [Vuex](https://vuex.vuejs.org/) - Serves as a centralized store for all the components in an application.
+- [Moment JS](https://momentjs.com/) - For date formatting
 
 ### Useful Resources
 
@@ -54,12 +56,9 @@ Users should be able to:
 
 - ✅ View the optimal layout for the app depending on their device's screen size
 - ✅ See hover states for all interactive elements on the page
-- ✅ Create, read, update, and delete invoices
-- ✅ Receive form validations when trying to create/edit an invoice
-- ✅ Save draft invoices, and mark pending invoices as paid
-- ✅ Filter invoices by status (draft/pending/paid)
-- ✅ Toggle light and dark mode
-- ✅ Keep track of any changes, even after refreshing the browser
+- ✅ Search for GitHub users by their username
+- ✅ See relevant user information based on their search
+- ✅ Switch between light and dark themes
 
 ## How To Use
 
@@ -85,7 +84,6 @@ $ yarn lint
 ## Acknowledgements
 
 - [ResponsivelyApp](https://responsively.app) - This extension helped me in viewing my projects in every viewport which helped improve responsiveness.
-- [Google](https://www.google.com/) & [Stackoverflow](https://stackoverflow.com/) - The goto place when I run into any problem 😉
 
 ## Contact
 
