@@ -47,7 +47,7 @@
 
 ### Useful Resources
 
-- [Axios](https://momentjs.com/) - For date formatting of any type
+- [Axios](https://axios-http.com/) - For date formatting of any type
 - [Github API](https://docs.github.com/en/rest/reference/users) - Read up Github API documentation for more information
 
 ## Features

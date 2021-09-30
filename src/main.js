@@ -7,15 +7,23 @@ import '@mdi/font/css/materialdesignicons.css'
 const store = createStore({
   state() {
     return {
-      profile: {}
+      profile: {},
+      error: "",
     }
   },
   getters: {
-    getProfile: (state) => state.profile
+    getProfile: (state) => state.profile,
+    errorMssg: (state) => state.error,
   },
   mutations: {
     fetchProfile(state, data) {
       state.profile = data
+    },
+    showError(state, payload) {
+      state.error = payload;
+      setTimeout(() => {
+        state.error = "";
+      }, 2000);
     },
   },
   actions: {
@@ -24,7 +32,10 @@ const store = createStore({
         const res = await axios.get(`https://api.github.com/users/${user}`);
         commit('fetchProfile', res.data)
       } catch (error) {
-        console.error(error);
+        if(error) {
+          const errorMssg = "No User"
+          commit("showError", errorMssg);
+        }
       }
     }
   },
